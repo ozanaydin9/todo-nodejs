@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const todoRoutes = express.Router();
-const PORT = 80;
+const PORT = process.env.PORT || 8080;
 
 let Todo = require('./model');
 
@@ -17,6 +17,11 @@ const connection = mongoose.connection;
 connection.once('open', function() {
     console.log("MongoDB database connection established successfully");
 });
+
+// Entry Point
+app.get('/', (req, res) => res.status(200).send({
+    message: 'Welcome to getir todo app!',
+}));
 
 //GET
 todoRoutes.route('/').get(function(req, res) {
