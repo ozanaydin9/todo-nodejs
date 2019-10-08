@@ -11,5 +11,8 @@
   },
   "devDependencies": {
     "ws": "3.3.2"
+  },
+  "scripts": {
+    "start": "node server.js"
   }
 }
