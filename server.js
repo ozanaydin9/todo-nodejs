@@ -11,7 +11,7 @@ let Todo = require('./model');
 app.use(cors());
 app.use(bodyParser.json());
 
-mongoose.connect('mongodb+srv://ozan:ozan@mydb-lajoj.mongodb.net/mydb-lajoj?retryWrites=true&w=majority', {useUnifiedTopology:true,  useNewUrlParser: true });
+mongoose.connect('dblink', {useUnifiedTopology:true,  useNewUrlParser: true });
 const connection = mongoose.connection;
 
 connection.once('open', function() {
@@ -20,7 +20,7 @@ connection.once('open', function() {
 
 // Entry Point
 app.get('/', (req, res) => res.status(200).send({
-    message: 'Welcome to getir todo app!',
+    message: 'Welcome to todo app!',
 }));
 
 //GET
